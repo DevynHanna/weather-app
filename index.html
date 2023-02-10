@@ -30,18 +30,18 @@
     <div class="container search">
       <div class="row align-items-center">
         <div class="col-9">
-        <form class="location-search">
+          <form class="location-search">
             <input
               type="text"
               class="form-control"
               id="location"
               placeholder="Location"
             />
+            <div class="col-1 buttons">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
         </div>
-          <div class="col-1 buttons">
-            <button type="submit" class="btn btn-primary">Search</button>
-          </div>
-        </form>
         <div class="col-2 buttons">
           <button class="btn btn-outline-primary" id="current-location-button">
             Current Location
@@ -172,6 +172,10 @@
         </div>
       </div>
     </div>
+    <p class="source-code">
+      <a href="https://github.com/DevynHanna/weather-app">O pen-source code</a>
+      by Devyn Hanna
+    </p>
 
     <script src="script.js"></script>
   </body>
