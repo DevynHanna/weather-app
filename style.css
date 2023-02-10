@@ -1,0 +1,42 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+h1 {
+  font-weight: bold;
+}
+
+.units {
+  font-weight: lighter;
+  font-size: 14px;
+  border: none;
+  background: none;
+}
+.units:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+button.selected {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 25px;
+}
+h3 {
+  font-size: 20px;
+}
+p {
+  font-weight: lighter;
+}
+.search {
+  border-bottom: 1px solid black;
+  padding: 20px 0;
+}
+.today {
+  padding: 20px 0;
+}
+.emojis {
+  font-size: 30px;
+}
