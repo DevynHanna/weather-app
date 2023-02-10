@@ -29,20 +29,30 @@
   <body>
     <div class="container search">
       <div class="row align-items-center">
-        <div class="col-9">
+        <div class="col-10">
           <form class="location-search">
-            <input
-              type="text"
-              class="form-control"
-              id="location"
-              placeholder="Location"
-            />
-            <div class="col-1 buttons">
-              <button type="submit" class="btn btn-primary">Search</button>
+            <div class="row align-items-center">
+              <div class="col-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="location"
+                  placeholder="Location"
+                />
+              </div>
+              <div class="col-2">
+                <button
+                  type="submit"
+                  style="width: 100%"
+                  class="btn btn-primary"
+                >
+                  Search
+                </button>
+              </div>
             </div>
           </form>
         </div>
-        <div class="col-2 buttons">
+        <div class="col-2">
           <button class="btn btn-outline-primary" id="current-location-button">
             Current Location
           </button>
