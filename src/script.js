@@ -60,7 +60,8 @@ function currentLocationTemp(response) {
 function displayCurrentLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=375139c251da45507c8593a3d7aa0f09`;
+  let apiKey = "375139c251da45507c8593a3d7aa0f09";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
   axios.get(apiUrl).then(currentLocationTemp);
 }
