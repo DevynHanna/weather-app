@@ -47,6 +47,12 @@ function showTemp(response) {
   todaysLow.innerHTML = Math.round(response.data.main.temp_min);
   let dateElement = document.querySelector(".todays-date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function changeCity(event) {
@@ -73,9 +79,14 @@ function currentLocationTemp(response) {
   todaysHigh.innerHTML = Math.round(response.data.main.temp_max);
   let todaysLow = document.querySelector(".today-low");
   todaysLow.innerHTML = Math.round(response.data.main.temp_min);
-  console.log(response);
   let dateElement = document.querySelector(".todays-date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function displayCurrentLocation(position) {
