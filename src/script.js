@@ -1,69 +1,67 @@
-function formatDate(timestamp) {
-  let today = new Date(timestamp);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[today.getDay()];
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let month = months[today.getMonth()];
-  let date = today.getDate();
-  let hour = today.getHours();
-  let minutes = today.getMinutes();
-  let year = today.getFullYear();
-  return `${day} ${month} ${date}, ${year} ${hour}:${minutes
-    .toString()
-    .padStart(2, "0")}`;
-}
+let today = new Date();
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[today.getDay()];
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+let month = months[today.getMonth()];
+let date = today.getDate();
+let hour = today.getHours();
+let minutes = today.getMinutes();
+let year = today.getFullYear();
+
+let currentDay = document.querySelector(".todays-date");
+currentDay.innerHTML = ` ${day} ${month} ${date}, ${year} ${hour}:${minutes
+  .toString()
+  .padStart(2, "0")}`;
 
 function showTemp(response) {
-  cTemp = response.data.main.temp;
+  cTemp = response.data.daily[0].temperature.day;
   let todaysTemp = document.querySelector(".todays-temp");
-  todaysTemp.innerHTML = Math.round(response.data.main.temp);
+  todaysTemp.innerHTML = Math.round(response.data.daily[0].temperature.day);
   let humidityIndicator = document.querySelector("#humidity");
-  humidityIndicator.innerHTML = response.data.main.humidity;
+  humidityIndicator.innerHTML = response.data.daily[0].temperature.humidity;
   let windIndicator = document.querySelector("#wind");
-  windIndicator.innerHTML = response.data.wind.speed;
+  windIndicator.innerHTML = response.data.daily[0].wind.speed;
   let todaysHigh = document.querySelector(".today-high");
-  todaysHigh.innerHTML = Math.round(response.data.main.temp_max);
+  todaysHigh.innerHTML = Math.round(response.data.daily[0].temperature.maximum);
   let todaysLow = document.querySelector(".today-low");
-  todaysLow.innerHTML = Math.round(response.data.main.temp_min);
-  let dateElement = document.querySelector(".todays-date");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  todaysLow.innerHTML = Math.round(response.data.daily[0].temperature.minimum);
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.daily[0].condition.description);
   let weatherDescription = document.querySelector(".weather-description");
-  weatherDescription.innerHTML = response.data.weather[0].description;
+  weatherDescription.innerHTML = response.data.daily[0].condition.description;
 }
 
 function changeCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#location");
   let h1 = document.querySelector(".current-location");
-  let apiKey = "375139c251da45507c8593a3d7aa0f09";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric&appid=${apiKey}`;
+  let apiKey = "f4b9t1e40f9ae2fof04248f3cac60e36";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityInput.value}&key=${apiKey}&units=metric`;
   h1.innerHTML = cityInput.value;
 
   axios.get(apiUrl).then(showTemp);
@@ -83,8 +81,6 @@ function currentLocationTemp(response) {
   todaysHigh.innerHTML = Math.round(response.data.main.temp_max);
   let todaysLow = document.querySelector(".today-low");
   todaysLow.innerHTML = Math.round(response.data.main.temp_min);
-  let dateElement = document.querySelector(".todays-date");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
