@@ -27,165 +27,179 @@
   </head>
 
   <body>
-    <div class="container search">
-      <div class="row align-items-center">
-        <div class="col-10">
-          <form class="location-search">
-            <div class="row align-items-center">
-              <div class="col-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="location"
-                  placeholder="Location"
-                />
+    <div class="app-container">
+      <div class="container search">
+        <div class="row align-items-center">
+          <div class="col-10">
+            <form class="location-search">
+              <div class="row align-items-center">
+                <div class="col-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="location"
+                    placeholder="Location"
+                  />
+                </div>
+                <div class="col-2">
+                  <button
+                    type="submit"
+                    style="width: 100%"
+                    class="btn btn-primary"
+                  >
+                    Search
+                  </button>
+                </div>
               </div>
-              <div class="col-2">
-                <button
-                  type="submit"
-                  style="width: 100%"
-                  class="btn btn-primary"
-                >
-                  Search
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-outline-primary" id="current-location-button">
-            Current Location
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="container today">
-      <div class="row">
-        <div class="col-sm-4 mb-3">
-          <h1 class="current-location">Guelph, ON</h1>
-          <div class="row">
-            <div class="col-8 col-sm-6 text-center">
-              <h1>
-                <span class="unit-change todays-temp">-3</span>
-                <span class="unit-text">°C</span>
-              </h1>
-            </div>
-            <div class="col-8 col-sm-6 text-left">
-              <p>
-                <button disabled class="units selected c-button">°C</button>
-                <span>|</span>
-                <button class="units f-button">°F</button>
-              </p>
-            </div>
+            </form>
           </div>
-          <div class="row">
-            <div class="col-8 col-sm-6 text-center">
-              <div class="emojis">☀️</div>
-            </div>
-            <div class="col-4 col-sm-6 text-left">
-              <p>
-                High: 0°C <br />
-                Low: -13°C
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-8 text-center">
-          <h2>Today's Forcast</h2>
-          <p class="todays-date">Sunday January 15, 2023</p>
-          <div class="row">
-            <div class="col">
-              <h3>Morning</h3>
-              <div class="emojis">🌤</div>
-              <p>-3°C</p>
-            </div>
-            <div class="col">
-              <h3>Afternoon</h3>
-              <div class="emojis">☀️</div>
-              <p>0°C</p>
-            </div>
-            <div class="col">
-              <h3>Evening</h3>
-              <div class="emojis">💨</div>
-              <p>-7°C</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row text-center">
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h2>☁️</h2>
-                  <h3 class="card-title">Monday</h3>
-                  <p class="card-text">
-                    High: 2°C <br />
-                    Low: -7°C
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h2>🌧</h2>
-                  <h3 class="card-title">Tuesday</h3>
-                  <p class="card-text">
-                    High: 4°C <br />
-                    Low: -2°C
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h2>☁️</h2>
-                  <h3 class="card-title">Wednesday</h3>
-                  <p class="card-text">
-                    High: 3°C <br />
-                    Low: -1°C
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h2>❄️</h2>
-                  <h3 class="card-title">Thursday</h3>
-                  <p class="card-text">
-                    High: 1°C <br />
-                    Low: -2°C
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h2>☁️</h2>
-                  <h3 class="card-title">Friday</h3>
-                  <p class="card-text">
-                    High: 0°C <br />
-                    Low: -4°C
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div class="col-2">
+            <button
+              class="btn btn-outline-primary"
+              id="current-location-button"
+            >
+              Current Location
+            </button>
           </div>
         </div>
       </div>
+      <div class="container today">
+        <div class="row">
+          <div class="col-sm-4">
+            <h1 class="current-location">Guelph, ON</h1>
+            <div class="row">
+              <div class="col-8 col-sm-6 text-center">
+                <h1>
+                  <span class="unit-change todays-temp">-3</span>
+                  <span class="unit-text">°C</span>
+                </h1>
+              </div>
+              <div class="col-8 col-sm-6 text-left">
+                <p>
+                  <button disabled class="units selected c-button">°C</button>
+                  <span>|</span>
+                  <button class="units f-button">°F</button>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8 col-sm-6 text-center">
+                <div class="emojis">☀️</div>
+              </div>
+              <div class="col-4 col-sm-6 text-left">
+                <p>
+                  High: 0°C <br />
+                  Low: -13°C
+                </p>
+              </div>
+            </div>
+            <div class="row humidity-wind">
+              <p>
+                <span class="humidity">Humidity: 0% </span>
+                <span class="wind">Wind: 3.0km/h </span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-8 text-center">
+            <h2>Today's Forcast</h2>
+            <p class="todays-date">Sunday January 15, 2023</p>
+            <div class="row">
+              <div class="col-sm-4">
+                <h3>Morning</h3>
+                <div class="emojis">🌤</div>
+                <p>-3°C</p>
+              </div>
+              <div class="col-sm-4">
+                <h3>Afternoon</h3>
+                <div class="emojis">☀️</div>
+                <p>0°C</p>
+              </div>
+              <div class="col-sm-4">
+                <h3>Evening</h3>
+                <div class="emojis">💨</div>
+                <p>-7°C</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row text-center">
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>☁️</h2>
+                    <h3 class="card-title">Monday</h3>
+                    <p class="card-text">
+                      High: 2°C <br />
+                      Low: -7°C
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>🌧</h2>
+                    <h3 class="card-title">Tuesday</h3>
+                    <p class="card-text">
+                      High: 4°C <br />
+                      Low: -2°C
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>☁️</h2>
+                    <h3 class="card-title">Wednesday</h3>
+                    <p class="card-text">
+                      High: 3°C <br />
+                      Low: -1°C
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>❄️</h2>
+                    <h3 class="card-title">Thursday</h3>
+                    <p class="card-text">
+                      High: 1°C <br />
+                      Low: -2°C
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>☁️</h2>
+                    <h3 class="card-title">Friday</h3>
+                    <p class="card-text">
+                      High: 0°C <br />
+                      Low: -4°C
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="source-code">
+        <a href="https://github.com/DevynHanna/weather-app" target="_blank"
+          >Open-source code</a
+        >
+        by Devyn Hanna
+      </p>
     </div>
-    <p class="source-code">
-      <a href="https://github.com/DevynHanna/weather-app">Open-source code</a>
-      by Devyn Hanna
-    </p>
 
     <script src="src/script.js"></script>
   </body>

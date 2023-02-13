@@ -1,3 +1,11 @@
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -32,17 +40,18 @@ p {
 }
 .search {
   border-bottom: 1px solid black;
-  padding: 20px 0;
+  padding: 10px 0 20px 0;
 }
 .today {
   padding: 20px 0;
 }
+.humidity-wind {
+  padding-left: 12px;
+}
 .emojis {
   font-size: 30px;
 }
-.app-container {
-  border: 1px black;
-}
+
 .source-code {
   text-align: center;
   margin: 0 auto;
