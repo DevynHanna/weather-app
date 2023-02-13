@@ -1,50 +1,52 @@
-let today = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[today.getDay()];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let month = months[today.getMonth()];
-let date = today.getDate();
-let year = today.getFullYear();
-let hour = today.getHours();
-let minutes = today.getMinutes();
-
-let currentDay = document.querySelector(".todays-date");
-currentDay.innerHTML = ` ${day} ${month} ${date}, ${year} ${hour}:${minutes
-  .toString()
-  .padStart(2, "0")}`;
+function formatDate(timestamp) {
+  let today = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[today.getDay()];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[today.getMonth()];
+  let date = today.getDate();
+  let hour = today.getHours();
+  let minutes = today.getMinutes();
+  let year = today.getFullYear();
+  return `${day} ${month} ${date}, ${year} ${hour}:${minutes
+    .toString()
+    .padStart(2, "0")}`;
+}
 
 function showTemp(response) {
   let todaysTemp = document.querySelector(".todays-temp");
   todaysTemp.innerHTML = Math.round(response.data.main.temp);
-  let humidityIndicator = document.querySelector(".humidity");
+  let humidityIndicator = document.querySelector("#humidity");
   humidityIndicator.innerHTML = response.data.main.humidity;
-  let windIndicator = document.querySelector(".wind");
+  let windIndicator = document.querySelector("#wind");
   windIndicator.innerHTML = response.data.wind.speed;
   let todaysHigh = document.querySelector(".today-high");
   todaysHigh.innerHTML = Math.round(response.data.main.temp_max);
   let todaysLow = document.querySelector(".today-low");
   todaysLow.innerHTML = Math.round(response.data.main.temp_min);
+  let dateElement = document.querySelector(".todays-date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function changeCity(event) {
@@ -63,15 +65,17 @@ function currentLocationTemp(response) {
   todaysTemp.innerHTML = Math.round(response.data.main.temp);
   let local = document.querySelector(".current-location");
   local.innerHTML = response.data.name;
-  let humidityIndicator = document.querySelector(".humidity");
+  let humidityIndicator = document.querySelector("#humidity");
   humidityIndicator.innerHTML = response.data.main.humidity;
-  let windIndicator = document.querySelector(".wind");
+  let windIndicator = document.querySelector("#wind");
   windIndicator.innerHTML = response.data.wind.speed;
   let todaysHigh = document.querySelector(".today-high");
   todaysHigh.innerHTML = Math.round(response.data.main.temp_max);
   let todaysLow = document.querySelector(".today-low");
   todaysLow.innerHTML = Math.round(response.data.main.temp_min);
   console.log(response);
+  let dateElement = document.querySelector(".todays-date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function displayCurrentLocation(position) {
