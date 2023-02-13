@@ -38,6 +38,11 @@ h3 {
 p {
   font-weight: lighter;
 }
+
+p.weather-description::first-letter {
+  text-transform: capitalize;
+}
+
 .search {
   border-bottom: 1px solid black;
   padding: 10px 0 20px 0;
