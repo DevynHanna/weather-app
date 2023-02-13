@@ -37,6 +37,14 @@ currentDay.innerHTML = ` ${day} ${month} ${date}, ${year} ${hour}:${minutes
 function showTemp(response) {
   let todaysTemp = document.querySelector(".todays-temp");
   todaysTemp.innerHTML = Math.round(response.data.main.temp);
+  let humidityIndicator = document.querySelector(".humidity");
+  humidityIndicator.innerHTML = response.data.main.humidity;
+  let windIndicator = document.querySelector(".wind");
+  windIndicator.innerHTML = response.data.wind.speed;
+  let todaysHigh = document.querySelector(".today-high");
+  todaysHigh.innerHTML = Math.round(response.data.main.temp_max);
+  let todaysLow = document.querySelector(".today-low");
+  todaysLow.innerHTML = Math.round(response.data.main.temp_min);
 }
 
 function changeCity(event) {
@@ -55,6 +63,15 @@ function currentLocationTemp(response) {
   todaysTemp.innerHTML = Math.round(response.data.main.temp);
   let local = document.querySelector(".current-location");
   local.innerHTML = response.data.name;
+  let humidityIndicator = document.querySelector(".humidity");
+  humidityIndicator.innerHTML = response.data.main.humidity;
+  let windIndicator = document.querySelector(".wind");
+  windIndicator.innerHTML = response.data.wind.speed;
+  let todaysHigh = document.querySelector(".today-high");
+  todaysHigh.innerHTML = Math.round(response.data.main.temp_max);
+  let todaysLow = document.querySelector(".today-low");
+  todaysLow.innerHTML = Math.round(response.data.main.temp_min);
+  console.log(response);
 }
 
 function displayCurrentLocation(position) {
