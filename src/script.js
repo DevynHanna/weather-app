@@ -35,6 +35,7 @@ function formatDate(timestamp) {
 }
 
 function showTemp(response) {
+  cTemp = response.data.main.temp;
   let todaysTemp = document.querySelector(".todays-temp");
   todaysTemp.innerHTML = Math.round(response.data.main.temp);
   let humidityIndicator = document.querySelector("#humidity");
@@ -67,6 +68,7 @@ function changeCity(event) {
 }
 
 function currentLocationTemp(response) {
+  cTemp = response.data.main.temp;
   let todaysTemp = document.querySelector(".todays-temp");
   todaysTemp.innerHTML = Math.round(response.data.main.temp);
   let local = document.querySelector(".current-location");
@@ -111,13 +113,13 @@ currentPosition.addEventListener("click", currentLocation);
 let city = document.querySelector(".location-search");
 city.addEventListener("submit", changeCity);
 
-let celciusButton = document.querySelector(".c-button");
-celciusButton.addEventListener("click", styleChangeToC);
+// to F/ to C
 
-let fahrenheitButton = document.querySelector(".f-button");
-fahrenheitButton.addEventListener("click", styleChangeToF);
+function ChangeToC() {
+  let tempElement = document.querySelector("#unit-change");
+  tempElement.innerHTML = Math.round(cTemp);
+  unitLabel.innerText = "°C";
 
-function styleChangeToC() {
   celciusButton.classList.add("selected");
   fahrenheitButton.classList.remove("selected");
 
@@ -125,10 +127,25 @@ function styleChangeToC() {
   fahrenheitButton.removeAttribute("disabled");
 }
 
-function styleChangeToF() {
+function ChangeToF(event) {
+  let tempElement = document.querySelector("#unit-change");
+  let fTemp = (cTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fTemp);
+  unitLabel.innerText = "°F";
+
   celciusButton.classList.remove("selected");
   fahrenheitButton.classList.add("selected");
 
   celciusButton.removeAttribute("disabled");
   fahrenheitButton.setAttribute("disabled", true);
 }
+
+let cTemp = null;
+
+let celciusButton = document.querySelector(".c-button");
+celciusButton.addEventListener("click", ChangeToC);
+
+let fahrenheitButton = document.querySelector(".f-button");
+fahrenheitButton.addEventListener("click", ChangeToF);
+
+let unitLabel = document.querySelector(".unit-text");
