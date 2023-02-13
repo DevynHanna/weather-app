@@ -54,6 +54,8 @@ function showTemp(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  let weatherDescription = document.querySelector(".weather-description");
+  weatherDescription.innerHTML = response.data.weather[0].description;
 }
 
 function changeCity(event) {
@@ -89,7 +91,6 @@ function currentLocationTemp(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  console.log(response);
   let weatherDescription = document.querySelector(".weather-description");
   weatherDescription.innerHTML = response.data.weather[0].description;
 }
@@ -112,8 +113,6 @@ currentPosition.addEventListener("click", currentLocation);
 
 let city = document.querySelector(".location-search");
 city.addEventListener("submit", changeCity);
-
-// to F/ to C
 
 function ChangeToC() {
   let tempElement = document.querySelector("#unit-change");
