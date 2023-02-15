@@ -68,6 +68,7 @@ function changeCity(event) {
 }
 
 function currentLocationTemp(response) {
+  console.log(response);
   cTemp = response.data.daily[0].temperature.day;
   let todaysTemp = document.querySelector(".todays-temp");
   todaysTemp.innerHTML = Math.round(response.data.daily[0].temperature.day);
@@ -94,8 +95,6 @@ function currentLocationTemp(response) {
 function displayCurrentLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  // let apiKey = "375139c251da45507c8593a3d7aa0f09";
-  // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   let apiKey = "f4b9t1e40f9ae2fof04248f3cac60e36";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
 
